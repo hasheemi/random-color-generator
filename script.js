@@ -1,6 +1,8 @@
 let button = document.getElementById("start");
 let con = document.getElementById("contain");
-button.addEventListener("click", function () {
+button.addEventListener("click", generate);
+window.addEventListener("load", generate);
+function generate() {
   con.innerHTML = "";
   for (let i = 0; i < 10; i++) {
     let r = Math.round(Math.random() * 255 + 1);
@@ -16,8 +18,7 @@ button.addEventListener("click", function () {
     function rgbToHex(r, g, b) {
       return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-    // console.log(hex);
-    // console.log(rgb);
+
     con.innerHTML +=
       `
       <div class="box">
@@ -35,4 +36,4 @@ button.addEventListener("click", function () {
       </div>
     `;
   }
-});
+}
